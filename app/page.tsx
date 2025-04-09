@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Editor from "./components/Editor";
 import Preview from "./components/Preview";
-import ThemeToggle from "./components/ThemeToggle";
 import FileControls from "./components/FileControls";
 
 export default function Home() {
@@ -20,19 +19,20 @@ export default function Home() {
   }, [markdown]);
 
   return (
-    <main className="min-h-screen flex flex-col items-center p-4 bg-gray-50 dark:bg-gray-900">
-      <div className="w-full max-w-6xl flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-4">
-        <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">📝 마크다운 메모장</h1>
+    <main className="min-h-screen flex flex-col items-center p-4 sm:p-6 bg-gradient-to-b from-gray-900 to-gray-800">
+      <div className="w-full max-w-6xl flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-6">
+        <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">
+          📝 마크다운 메모장
+        </h1>
         <div className="flex flex-wrap items-center gap-2">
           <FileControls markdown={markdown} setMarkdown={setMarkdown} />
-          <ThemeToggle />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-6xl h-[75vh]">
-        <div className="rounded-lg overflow-hidden shadow-md">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl h-[calc(100vh-140px)]">
+        <div className="rounded-xl overflow-hidden shadow-lg shadow-black/20">
           <Editor markdown={markdown} setMarkdown={setMarkdown} />
         </div>
-        <div className="rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-800">
+        <div className="rounded-xl overflow-hidden shadow-lg shadow-black/20 bg-gray-800">
           <Preview markdown={markdown} />
         </div>
       </div>
